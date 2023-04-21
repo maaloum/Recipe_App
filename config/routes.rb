@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :recipes, except: [:update] 
     resources :general_shopping_list, only: [:index]
   end
+  resources :public_recipes, only: [:index]
 end
