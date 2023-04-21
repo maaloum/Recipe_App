@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
+ 
   devise_for :users
-  root to: 'users#index'
+  root to: 'recipes#index'
+  resources :users, only: [:index, :show] do
+    resources :recipes, except: [:update] 
+  end
 end
