@@ -9,15 +9,15 @@ RSpec.describe Food, type: :model do
 
   describe 'Food model' do
     it 'Should have a name' do
-      expect(subject.name).to eq "Mango"
+      expect(subject.name).to eq 'Mango'
     end
 
     it 'Should have a price' do
-      expect(subject.price) =='50'
+      expect(subject.price) == '50'
     end
 
     it 'Should have a measurement_unit' do
-      expect(subject.measurement_unit) == "kg"
+      expect(subject.measurement_unit) == 'kg'
     end
   end
 end
