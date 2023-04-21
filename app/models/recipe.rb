@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  validates :name, presence: true, length: { maximum: 250}
+  validates :name, presence: true, length: { maximum: 250 }
   validates :preperation_time, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :cooking_time, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :description, presence: true
@@ -13,5 +13,5 @@ class Recipe < ApplicationRecord
       total += recipe_food.price * recipe_food.quantity
     end
     total
-  end    
+  end
 end
