@@ -1,38 +1,55 @@
-class FoodsControll < ApplicationController
-  def index
-    @foods = current_user.foods.includes(:user).all
-  end
+class FoodsController < ApplicationController
+  before_action :set_food, only: %i[show destroy]
+  before_action :set_user, only: %i[index show create]
 
-  def show
-    @food = current_user.foods.includes(:user).find(params[:id])
+  def index
+    # @user = User.find(params[:user_id])
+    @foods = @user.foods.sort.reverse
+    render :index
   end
 
   def new
     @food = Food.new
+    render :new
   end
 
   def create
-    @food = Food.new(food_params)
-    @food.user = current_user
+    @user = User.find(params[:user_id])
+    @food = @user.foods.new(**food_params)
     if @food.save
-      flash[:success] = 'New Food has been added !!'
-      redirect_to foods_path
+      flash[:success] = 'Food saved successfully'
+      redirect_to user_foods_url
     else
-      flash['alert'] = 'Food not added, try again !!'
-      render :New
+      flash.now[:error] = 'Error: Food could not be saved'
+      render :new
     end
   end
 
   def destroy
-    @food = Food.find(params[:id])
-    @food.destroy
-    flash[:success] = 'Food has beed deleted successfully'
-    redirect_to foods_path
+    @user = current_user
+    if @food.destroy
+      flash[:success] = 'Food was successfully deleted.'
+    else
+      flash[:error] = 'Error: Food could not be deleted'
+    end
+    redirect_to user_foods_url
+  end
+
+  def show
+    @food
   end
 
   private
 
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_food
+    @food = set_user.foods.find(params[:id])
+  end
+
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
   end
 end
