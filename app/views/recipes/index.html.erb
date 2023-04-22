@@ -1,7 +1,7 @@
 <h1> Recipes</h1>
 <h3> List of recipes </h3>
 <%= button_to "Create new recipe", 
-            new_user_recipe_path,
+            new_user_recipe_path(@user),
             method: :get %>
 
 <% if @recipes.any? %>
