@@ -1,4 +1,4 @@
-class FoodsControll < ApplicationController
+class FoodsController < ApplicationController
   def index
     @foods = current_user.foods.includes(:user).all
   end
