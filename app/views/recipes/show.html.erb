@@ -5,9 +5,21 @@
       <p>Preparation Time: <%= @recipe.preperation_time %></p>
       <p>Cooking Time: <%= @recipe.cooking_time %></p>
       <p>Step go here...</p>
-      <div class="col-md-8">
-          <button class="btn btn-primary">Generate Shopping List</button>
+
+      
+    <% if can? :manage, @recipe %>
+          <div class = "btn-link">
+          <%= link_to "Generate Shopping List", user_recipe_general_shopping_list_index_path(@user, @recipe), class: '' %>
         </div>
+
+        <div class = "btn-link">
+          <%= link_to "Add ingredient", new_user_recipe_recipe_food_path(@user, @recipe), class: '' %>
+        </div>
+      </div> 
+      <div class = "hr">
+      </div>
+   <% end %>
+
     </div>
     
     
