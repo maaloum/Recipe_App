@@ -15,10 +15,12 @@ class RecipesController < ApplicationController
   end
 
   def index
+    @user = current_user
     @recipes = Recipe.all
   end
 
   def show
+    @user = current_user
     @recipe = Recipe.find(params[:id])
     @foods = Food.all
   end
