@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe = Recipe.find(params[:id])
     @foods = Food.all
+    @recipe_foods = @recipe.recipe_foods.includes(:food, :recipe).order(:id)
   end
 
   def destroy
