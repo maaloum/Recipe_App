@@ -181,6 +181,35 @@ h5 {
   padding: 1rem 2rem;
 }
 
+.recipes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 15px;
+  border: 1px solid rgb(71, 116, 165);
+}
+
+.recipe-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 5px;
+  gap: 1rem;
+}
+.recipeDescription{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 5px;
+  gap: 1rem;
+  width: 200px;
+}
+
 .recipe-cost,
 .recipe-info {
   flex-direction: column;

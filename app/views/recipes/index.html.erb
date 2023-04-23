@@ -8,8 +8,8 @@
 
 
         <% @recipes.each do |recipe| %>
-            <section>
-                <div>
+            <section class= 'recipes'>
+                <div class = 'recipe-details'>
                      <%= link_to recipe.name, 
                      user_recipe_path(current_user, recipe),
                         method: :get %> 
@@ -19,7 +19,7 @@
                             method: :delete %> 
                 </div>
 
-                 <div>
+                 <div class ="recipeDescription">
                         <%= recipe.description %>
                 </div>
             </section>
