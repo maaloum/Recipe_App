@@ -24,7 +24,7 @@
     </ul>
     <div class="account"> 
       
-        <%= link_to "sign out", destroy_user_session_path, method: :delete   %>
+        <%= link_to "sign out", destroy_user_session_path, method: :delete, form: {  data: { turbo: :false } }  %>
       <% else %>
         <%= link_to "sign in", new_user_session_path, method: :get %>
       <% end %>

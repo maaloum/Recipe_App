@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
  
   devise_for :users
-  root to: 'recipes#index'
+ 
+  devise_scope :users do
+    root to: 'devise/sessions#new'
+  end
+
   resources :users, only: [:index, :show] do
     resources :foods, only: [:index, :show, :new, :create, :destroy]
     resources :recipes, only: [:index, :show, :new, :create, :destroy] do
@@ -9,5 +13,7 @@ Rails.application.routes.draw do
       resources :general_shopping_list, only: [:index]
     end
   end
+
+  resources :public_recipes, only: [:index]
   resources :public_recipes, only: [:index]
 end
