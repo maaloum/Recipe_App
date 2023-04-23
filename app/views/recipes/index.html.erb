@@ -9,7 +9,7 @@
 
         <% @recipes.each do |recipe| %>
             <section class= 'recipes'>
-                <div class = 'recipe-details'>
+                <div class = 'recipeDetails'>
                      <%= link_to recipe.name, 
                      user_recipe_path(current_user, recipe),
                         method: :get %> 

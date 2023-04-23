@@ -123,7 +123,7 @@ h5 {
   align-items: center;
 }
 
-.recipe-details button {
+.recipeDetails button {
   background: transparent;
   color: #e84855;
   padding: 0.5em 1em;
@@ -181,7 +181,7 @@ h5 {
   padding: 1rem 2rem;
 }
 
-.recipes{
+.recipes {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,7 +190,7 @@ h5 {
   border: 1px solid rgb(71, 116, 165);
 }
 
-.recipe-details{
+.recipeDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -199,7 +199,8 @@ h5 {
   margin: 5px;
   gap: 1rem;
 }
-.recipeDescription{
+
+.recipeDescription {
   display: flex;
   flex-direction: column;
   align-items: center;
